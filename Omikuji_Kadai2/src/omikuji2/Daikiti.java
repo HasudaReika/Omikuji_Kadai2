@@ -1,6 +1,8 @@
 package omikuji2;
 
-public class Daikiti extends Omikuji{
+import java.io.Serializable;
+
+public class Daikiti extends Omikuji implements Serializable{
 
 	
 	public Daikiti(String negaigoto, String akinai, String gakumon) {

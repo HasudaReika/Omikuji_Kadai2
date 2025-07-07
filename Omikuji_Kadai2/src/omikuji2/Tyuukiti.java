@@ -1,6 +1,8 @@
 package omikuji2;
 
-public class Tyuukiti extends Omikuji implements Fortune {
+import java.io.Serializable;
+
+public class Tyuukiti extends Omikuji implements Serializable {
 
 	public Tyuukiti(String negaigoto, String akinai, String gakumon) {
 		setUnsei();

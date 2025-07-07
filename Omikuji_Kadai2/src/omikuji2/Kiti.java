@@ -1,6 +1,8 @@
 package omikuji2;
 
-public class Kiti extends Omikuji implements Fortune{
+import java.io.Serializable;
+
+public class Kiti extends Omikuji implements Serializable{
 	public Kiti (String negaigoto, String akinai, String gakumon) {
         setUnsei(); 
         setNegaigoto(negaigoto);

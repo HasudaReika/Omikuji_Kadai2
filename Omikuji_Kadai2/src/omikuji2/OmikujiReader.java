@@ -14,13 +14,13 @@ public class OmikujiReader {
 	//おみくじリーダーのコンストラクタ
 	public OmikujiReader() {
 		System.out.println("おみくじリーダーのコンストラクタを呼び出しました");
+		//おみくじオブジェクトを作成しリストに追加するメソッドを呼び出す
 		loadOmikuji();
 	}
 
+	//おみくじオブジェクトを作成しリストに追加
 	public void loadOmikuji() {
 		//csvを読み込む
-		System.out.println("ファイルを読み込みます");
-
 		String csv = "omikuji.csv";
 		try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
 			String line;
@@ -39,8 +39,6 @@ public class OmikujiReader {
 				if (omikujiObject != null) {
 					allOmikuji.add(omikujiObject);
 				}
-				//全てのおみくじを返す
-//				getAllOmikuji();
 
 			}
 
