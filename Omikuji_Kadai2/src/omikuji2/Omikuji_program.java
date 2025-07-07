@@ -22,12 +22,12 @@ public class Omikuji_program {
 		String inputDateString;
 
 		//誕生日を入力してもらう
-			do {
-				System.out.println("誕生日を入力してください　例:20011009");
-				//入力された日付をinputDateStringに代入
-				inputDateString = br.readLine();
-			} while (!isValidDate(inputDateString));
-			fortuneTelling(inputDateString);
+		do {
+			System.out.println("誕生日を入力してください　例:20011009");
+			//入力された日付をinputDateStringに代入
+			inputDateString = br.readLine();
+		} while (!isValidDate(inputDateString));
+		fortuneTelling(inputDateString);
 
 	}
 
@@ -53,38 +53,15 @@ public class Omikuji_program {
 
 	//おみくじを出すメソッド
 	public static void fortuneTelling(String birthday) {
-
-		//Omikuji型の変数を作成
-		Omikuji omikuji;
-
-			//キャッシュになかった場合はおみくじ作成メソッドを呼び出す
-			omikuji = makeOmikuji(birthday);
-
-		//結果をファイルに追記する
-		try {
-			FileWriter file = new FileWriter("file.txt", true);
-			PrintWriter pw = new PrintWriter(new BufferedWriter(file));
-			System.out.println("結果をファイルに追記しました");
-			pw.println(birthday + "\n" + omikuji.disp());
-			pw.close();
-
-		} catch (Exception e) {
-			System.out.println("ファイルに追記できませんでした");
-			e.printStackTrace();
-
-		}
-	}
-
-	//おみくじ作成メソッド
-	private static Omikuji makeOmikuji(String birthday) {
 		LocalDateTime now = LocalDateTime.now();
 		LocalDate today = now.toLocalDate();
-//		LocalDate today = LocalDate.parse("2025-07-08");
+		//日付変わって結果も変わるかチェック
+		//		LocalDate today = LocalDate.parse("2025-07-08");
 		//全てのおみくじを取得しリストに格納
 		List<Omikuji> list = omikujiReader.getAllOmikuji();
 		//誕生日から得られるシード
 		long baseSeed = Long.parseLong(birthday);
-		//今日の日付から得られるシード
+		//今日の日付から得られるシード 日付を数値に変換
 		long dateSeed = today.toEpochDay();
 		//誕生日と今日の日付を組み合わせたシード
 		Long combinedSeed = baseSeed + dateSeed;
@@ -97,8 +74,19 @@ public class Omikuji_program {
 		//取得したおみくじを出力
 		System.out.println(fortuneResult.disp());
 
-		return fortuneResult;
+		//結果をファイルに追記する
+		try {
+			FileWriter file = new FileWriter("file.txt", true);
+			PrintWriter pw = new PrintWriter(new BufferedWriter(file));
+//			System.out.println("結果をファイルに追記しました");
+			pw.println(birthday + "\n" + fortuneResult.disp());
+			pw.close();
 
+		} catch (Exception e) {
+			System.out.println("ファイルに追記できませんでした");
+			e.printStackTrace();
+
+		}
 	}
 
 }
