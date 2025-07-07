@@ -13,7 +13,6 @@ public class OmikujiReader {
 
 	//おみくじリーダーのコンストラクタ
 	public OmikujiReader() {
-		System.out.println("おみくじリーダーのコンストラクタを呼び出しました");
 		//おみくじオブジェクトを作成しリストに追加するメソッドを呼び出す
 		loadOmikuji();
 	}

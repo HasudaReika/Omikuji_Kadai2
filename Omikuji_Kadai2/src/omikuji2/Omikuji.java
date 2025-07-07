@@ -1,9 +1,12 @@
 package omikuji2;
+
+import java.io.Serializable;
+
 /*
  * 運勢クラス
  */
 
-public abstract class Omikuji implements Fortune {
+public abstract class Omikuji implements Fortune , Serializable{
 
 	protected String unsei;
 	protected String negaigoto;
