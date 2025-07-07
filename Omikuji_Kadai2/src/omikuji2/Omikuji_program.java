@@ -53,6 +53,7 @@ public class Omikuji_program {
 
 	//おみくじを出すメソッド
 	public static void fortuneTelling(String birthday) {
+		//今日の日付を取得
 		LocalDateTime now = LocalDateTime.now();
 		LocalDate today = now.toLocalDate();
 		//日付変わって結果も変わるかチェック
