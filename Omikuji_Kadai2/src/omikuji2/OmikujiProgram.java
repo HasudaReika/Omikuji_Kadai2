@@ -22,23 +22,25 @@ public class OmikujiProgram {
 		String inputDateString;
 
 		//おみくじの結果が出たらまた誕生日入力に戻る
-		for (int i = 0; i >= 0; i++) {
+		while (true) {
+
 			//誕生日を入力してもらう
-			do {
-				System.out.println("誕生日を入力してください　例:20011009");
-				//入力された日付をinputDateStringに代入
-				inputDateString = br.readLine();
-			} while (!isValidDate(inputDateString));
+			System.out.println("誕生日を入力してください　例:20011009");
+			//入力された日付をinputDateStringに代入
+			inputDateString = br.readLine();
+			if (!isValidDate(inputDateString)) {
+				continue;
+			}
 			fortuneTelling(inputDateString);
-			
+
 			System.out.println("\n" + "おみくじを続けますか？　yes/no");
 			BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
 			String answer = br2.readLine();
-			if(answer.equals("yes")) {
+			if (answer.equals("yes")) {
 				continue;
 			} else {
 				System.out.println("おみくじプログラムを終了します");
-				System.exit(i);
+				break;
 			}
 		}
 	}
