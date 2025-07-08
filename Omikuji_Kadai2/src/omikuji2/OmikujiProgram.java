@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 
-public class Omikuji_program {
+public class OmikujiProgram {
 	//OmikujiReaderオブジェクトを作成し、コンストラクタを呼び出す
 	static OmikujiReader omikujiReader = new OmikujiReader();
 
@@ -21,14 +21,17 @@ public class Omikuji_program {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String inputDateString;
 
-		//誕生日を入力してもらう
-		do {
-			System.out.println("誕生日を入力してください　例:20011009");
-			//入力された日付をinputDateStringに代入
-			inputDateString = br.readLine();
-		} while (!isValidDate(inputDateString));
-		fortuneTelling(inputDateString);
+		//おみくじの結果が出たらまた誕生日入力に戻る
+		for (int i = 0; i >= 0; i++) {
+			//誕生日を入力してもらう
+			do {
+				System.out.println("誕生日を入力してください　例:20011009");
+				//入力された日付をinputDateStringに代入
+				inputDateString = br.readLine();
+			} while (!isValidDate(inputDateString));
+			fortuneTelling(inputDateString);
 
+		}
 	}
 
 	//日付の妥当性チェック
@@ -57,7 +60,7 @@ public class Omikuji_program {
 		LocalDateTime now = LocalDateTime.now();
 		LocalDate today = now.toLocalDate();
 		//日付変わって結果も変わるかチェック
-		//		LocalDate today = LocalDate.parse("2025-07-08");
+		//				LocalDate today = LocalDate.parse("2025-07-09");
 		//全てのおみくじを取得しリストに格納
 		List<Omikuji> list = omikujiReader.getAllOmikuji();
 		//誕生日から得られるシード
@@ -79,12 +82,12 @@ public class Omikuji_program {
 		try {
 			FileWriter file = new FileWriter("file.txt", true);
 			PrintWriter pw = new PrintWriter(new BufferedWriter(file));
-//			System.out.println("結果をファイルに追記しました");
+			//			System.out.println("結果をファイルに追記しました");
 			pw.println(birthday + "\n" + fortuneResult.disp());
 			pw.close();
 
-		} catch (Exception e) {
-			System.out.println("ファイルに追記できませんでした");
+		} catch (IOException e) {
+			//			System.out.println("ファイルに追記できませんでした");
 			e.printStackTrace();
 
 		}

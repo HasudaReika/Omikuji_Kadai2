@@ -55,15 +55,15 @@ public class OmikujiReader {
 	private Omikuji makeOmikujiObject(String unsei, String negaigoto, String akinai, String gakumon) {
 		switch (unsei) {
 		case "大吉":
-			return new Daikiti(negaigoto, akinai, gakumon);
+			return new Daikichi(negaigoto, akinai, gakumon);
 		case "中吉":
-			return new Tyuukiti(negaigoto, akinai, gakumon);
+			return new Chukichi(negaigoto, akinai, gakumon);
 		case "小吉":
-			return new Shoukiti(negaigoto, akinai, gakumon);
+			return new Shokichi(negaigoto, akinai, gakumon);
 		case "末吉":
-			return new Suekiti(negaigoto, akinai, gakumon);
+			return new Suekichi(negaigoto, akinai, gakumon);
 		case "吉":
-			return new Kiti(negaigoto, akinai, gakumon);
+			return new Kichi(negaigoto, akinai, gakumon);
 		case "凶":
 			return new Kyou(negaigoto, akinai, gakumon);
 		default:

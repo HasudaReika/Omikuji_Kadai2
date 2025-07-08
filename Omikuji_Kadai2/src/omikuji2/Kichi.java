@@ -2,8 +2,8 @@ package omikuji2;
 
 import java.io.Serializable;
 
-public class Kiti extends Omikuji implements Serializable{
-	public Kiti (String negaigoto, String akinai, String gakumon) {
+public class Kichi extends Omikuji implements Serializable{
+	public Kichi (String negaigoto, String akinai, String gakumon) {
         setUnsei(); 
         setNegaigoto(negaigoto);
         setAkinai(akinai);

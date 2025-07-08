@@ -2,9 +2,9 @@ package omikuji2;
 
 import java.io.Serializable;
 
-public class Shoukiti extends Omikuji implements Serializable {
+public class Shokichi extends Omikuji implements Serializable {
 
-	public Shoukiti(String negaigoto, String akinai, String gakumon) {
+	public Shokichi(String negaigoto, String akinai, String gakumon) {
 		setUnsei();
 		setNegaigoto(negaigoto);
 		setAkinai(akinai);

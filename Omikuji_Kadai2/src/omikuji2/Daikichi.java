@@ -2,10 +2,10 @@ package omikuji2;
 
 import java.io.Serializable;
 
-public class Daikiti extends Omikuji implements Serializable{
+public class Daikichi extends Omikuji implements Serializable{
 
 	
-	public Daikiti(String negaigoto, String akinai, String gakumon) {
+	public Daikichi(String negaigoto, String akinai, String gakumon) {
         setUnsei(); 
         setNegaigoto(negaigoto);
         setAkinai(akinai);
