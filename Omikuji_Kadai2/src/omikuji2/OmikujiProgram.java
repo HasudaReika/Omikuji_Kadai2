@@ -30,7 +30,16 @@ public class OmikujiProgram {
 				inputDateString = br.readLine();
 			} while (!isValidDate(inputDateString));
 			fortuneTelling(inputDateString);
-
+			
+			System.out.println("\n" + "おみくじを続けますか？　yes/no");
+			BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+			String answer = br2.readLine();
+			if(answer.equals("yes")) {
+				continue;
+			} else {
+				System.out.println("おみくじプログラムを終了します");
+				System.exit(i);
+			}
 		}
 	}
 
